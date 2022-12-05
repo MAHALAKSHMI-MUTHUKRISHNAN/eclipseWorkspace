@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Virtusa-Project\c665121a-1dde-4cd9-8227-f66b6b6d4f0f\springapp"/>
+			<item value="C:\watch-backend"/>
+			<item value="C:\Users\DELL\Downloads\springboot_react_mysql_login-master"/>
+			<item value="C:\Users\DELL\Downloads\watch-backend"/>
+			<item value="C:\Users\DELL\Downloads\book"/>
+			<item value="C:\Users\DELL\Downloads\sprint1"/>
+			<item value="C:\Users\DELL\Downloads\springboot-backend"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="Advanced"/>
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

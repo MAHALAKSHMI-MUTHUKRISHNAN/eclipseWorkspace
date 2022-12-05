@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://axis.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://axis.com" xmlns:intf="http://axis.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://axis.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getDetails">
+    <complexType>
+     <sequence>
+      <element name="from" type="xsd:string"/>
+      <element name="to" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDetailsResponse">
+    <complexType>
+     <sequence>
+      <element name="getDetailsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getDetailsRequest">
+
+      <wsdl:part element="impl:getDetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsResponse">
+
+      <wsdl:part element="impl:getDetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="EnquiryService">
+
+      <wsdl:operation name="getDetails">
+
+         <wsdl:input message="impl:getDetailsRequest" name="getDetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDetailsResponse" name="getDetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="EnquiryServiceSoapBinding" type="impl:EnquiryService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="EnquiryServiceService">
+
+      <wsdl:port binding="impl:EnquiryServiceSoapBinding" name="EnquiryService">
+
+         <wsdlsoap:address location="http://localhost:8080/Airlinewebservice/services/EnquiryService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

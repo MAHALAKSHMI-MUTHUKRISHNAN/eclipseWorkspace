@@ -1,0 +1,41 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from EnquiryServiceProxyService WSDL service -->
+
+  <service name="EnquiryServiceProxy" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://axis.com"/>
+      <parameter name="wsdlServiceElement" value="EnquiryServiceProxyService"/>
+      <parameter name="schemaQualified" value="http://axis.com"/>
+      <parameter name="wsdlServicePort" value="EnquiryServiceProxy"/>
+      <parameter name="className" value="com.axis.EnquiryServiceProxySoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="EnquiryServiceProxy"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getName" qname="operNS:getName" xmlns:operNS="http://axis.com" returnQName="retNS:getNameReturn" xmlns:retNS="http://axis.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:flightNum" xmlns:pns="http://axis.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:seatNum" xmlns:pns="http://axis.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getDetails" qname="operNS:getDetails" xmlns:operNS="http://axis.com" returnQName="retNS:getDetailsReturn" xmlns:retNS="http://axis.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:from" xmlns:pns="http://axis.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:to" xmlns:pns="http://axis.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setEndpoint" qname="operNS:setEndpoint" xmlns:operNS="http://axis.com" soapAction="" >
+        <parameter qname="pns:endpoint" xmlns:pns="http://axis.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getEndpoint" qname="operNS:getEndpoint" xmlns:operNS="http://axis.com" returnQName="retNS:getEndpointReturn" xmlns:retNS="http://axis.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getEnquiryService" qname="operNS:getEnquiryService" xmlns:operNS="http://axis.com" returnQName="retNS:getEnquiryServiceReturn" xmlns:retNS="http://axis.com" returnType="rtns:anyType" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getEnquiryService getName getDetails getEndpoint setEndpoint"/>
+
+  </service>
+</deployment>

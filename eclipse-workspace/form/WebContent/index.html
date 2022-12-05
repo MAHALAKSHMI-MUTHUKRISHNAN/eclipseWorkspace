@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>111718205016</title>
+<script>
+function update() {
+  var obj = new XMLHttpRequest();
+  obj.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("div2").innerHTML =
+      this.responseText;
+    }
+  };
+  obj.open("GET", "tracking.java", true);
+  obj.send();
+}
+</script>
+<style>
+#div1
+{
+background-color:blue;
+color:white
+}
+#div2
+{
+background-color:blue;
+color:white
+}
+</style>
+
+</head>
+<body>
+<div id="div1">
+
+<p> Hello everyone!!
+</p>
+
+</div>
+<div id="div2">
+<h1>FAV CHOCOLATE</h1>
+<button type="button" onclick="update()">Click to know my fav chocolate</button>
+</div>
+</body>
+</html>

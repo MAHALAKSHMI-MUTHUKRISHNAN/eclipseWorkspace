@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Billing</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+   $(function(){
+	   $(document).on("click",".transfer",function(){
+		   var getselectedvalues=$(".maintable input:checked").parents("tr").clone().appendTo($(".selectedtable tbody").add(getselectedvalues));  
+	   })
+   })
+    
+</script>
+<style>
+   .maintable{
+   height: 25%;
+  width: 50%;
+  text-align:center;
+   }
+   .split {
+  height: 75%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 100px;
+}
+.left {
+  left: 0;
+ 
+}
+.right {
+  right: 0;
+  
+</style>
+</head>
+<body>
+   <script src="js/jquery.min.js"></script>
+<script src="js/jautocalc.js"></script>
+<script src="js/script.js"></script>
+  <h1>Billing</h1>
+  <div align="center" >
+  
+  <br>
+   
+   </div>
+ <div>&nbsp;</div>
+  <div class ="split left"  align = "left">
+   <div class="maintable">
+   <table border = "1" cellpadding="10">
+      <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Gst</th>
+            <th>Price</th>
+            <th>Checkbox</th>
+            <th>Quantity</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr th:each="product : ${listProducts}" >
+             <td th:text="${product.id}" >Product ID</td>
+             <td th:text="${product.code}">Code</td>
+             <td th:text="${product.name}">Brand</td>
+             <td th:text="${product.gst}" th:id="n1" >Gst</td>
+             <td th:text="${product.price}" id="n2">Price</td>
+             <td> <input type="checkbox"> </td>
+             
+          </tr>
+          <div>&nbsp;</div>
+          <tr>
+          <form th:action ="@{/bill}">
+       
+       <input type="button" value="gstcal"  onclick="calculate()"/>
+       &nbsp;
+       <br>
+       <input type="button" value="Add to billing products"  class= "transfer" />
+      
+      </form> 
+      
+      </tr>
+      </tbody>
+   </table>
+ </div>
+  </div>
+  
+     
+      
+      
+ 
+<div class="split right">
+  <div align = "center" class="selectedtable">
+   <table border = "1" cellpadding="10">
+   <tr>
+   <p id="result"></p>
+     <thead>
+     
+          <tr>
+          
+            <th>Product ID</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Gst</th>
+            <th>Price</th>
+            <th>Added Products</th>
+            <th>Quantity</th>
+               </tr>
+       </thead>
+      
+             </table>
+  </div>
+  </div>
+  <div>
+   
+  </div>
+  <script type="text/javascript">
+  function calculate(){
+	  
+	  var n1 = document.getElementById("n1").value;
+	  var n2 = document.getElementById("n2").value;
+	   var n3 = n1*n2;
+	   alert(document.getElementById("n1").value);
+	   alert("show" + n3);
+	   a
+	   document.getElementById('result').innerHTML=n3 ;
+	      	  
+  }
+  $(function(){
+	  $('.save').click(function (e){
+		   var id = $(this).data('product-id');
+		   var quantity =$('#quantity' + id).val();
+		   alert("OrderId:" +id+"Quantity"+quantity);
+	  })})
+  }
+    
+  </script>
+</body>
+</html>

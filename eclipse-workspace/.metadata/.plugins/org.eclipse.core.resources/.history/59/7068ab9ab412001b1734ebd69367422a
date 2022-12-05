@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>5026 Mahalakshmi</title>
+<script>
+function update() {
+  var obj = new XMLHttpRequest();
+  obj.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("div2").innerHTML =
+      this.responseText;
+    }
+  };
+  obj.open("GET", "ajax.txt", true);
+  obj.send();
+}
+</script>
+<style>
+#div1
+{
+background-color:cyan;
+}
+</style>
+
+</head>
+<body>
+<div id="div1">
+<p> Fixed Content</p>
+<p> Hello everyone!!</p>
+</div>
+<div id="div2">
+<h1>Ajax based updation</h1>
+<button type="button" onclick="update()">Click to know my Name!</button>
+</div>
+</body>
+</html>

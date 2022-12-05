@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://axis.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://axis.com" xmlns:intf="http://axis.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://axis.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getName">
+    <complexType>
+     <sequence>
+      <element name="flightNum" type="xsd:int"/>
+      <element name="seatNum" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getNameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDetails">
+    <complexType>
+     <sequence>
+      <element name="from" type="xsd:string"/>
+      <element name="to" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDetailsResponse">
+    <complexType>
+     <sequence>
+      <element name="getDetailsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setEndpoint">
+    <complexType>
+     <sequence>
+      <element name="endpoint" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setEndpointResponse">
+    <complexType/>
+   </element>
+   <element name="getEndpoint">
+    <complexType/>
+   </element>
+   <element name="getEndpointResponse">
+    <complexType>
+     <sequence>
+      <element name="getEndpointReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getEnquiryService">
+    <complexType/>
+   </element>
+   <element name="getEnquiryServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="getEnquiryServiceReturn" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getNameRequest">
+
+      <wsdl:part element="impl:getName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsRequest">
+
+      <wsdl:part element="impl:getDetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setEndpointResponse">
+
+      <wsdl:part element="impl:setEndpointResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEnquiryServiceRequest">
+
+      <wsdl:part element="impl:getEnquiryService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEndpointRequest">
+
+      <wsdl:part element="impl:getEndpoint" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsResponse">
+
+      <wsdl:part element="impl:getDetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEnquiryServiceResponse">
+
+      <wsdl:part element="impl:getEnquiryServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNameResponse">
+
+      <wsdl:part element="impl:getNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEndpointResponse">
+
+      <wsdl:part element="impl:getEndpointResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setEndpointRequest">
+
+      <wsdl:part element="impl:setEndpoint" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="EnquiryServiceProxy">
+
+      <wsdl:operation name="getName">
+
+         <wsdl:input message="impl:getNameRequest" name="getNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNameResponse" name="getNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDetails">
+
+         <wsdl:input message="impl:getDetailsRequest" name="getDetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDetailsResponse" name="getDetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setEndpoint">
+
+         <wsdl:input message="impl:setEndpointRequest" name="setEndpointRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setEndpointResponse" name="setEndpointResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEndpoint">
+
+         <wsdl:input message="impl:getEndpointRequest" name="getEndpointRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getEndpointResponse" name="getEndpointResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEnquiryService">
+
+         <wsdl:input message="impl:getEnquiryServiceRequest" name="getEnquiryServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getEnquiryServiceResponse" name="getEnquiryServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="EnquiryServiceProxySoapBinding" type="impl:EnquiryServiceProxy">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setEndpoint">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setEndpointRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setEndpointResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEndpoint">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getEndpointRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getEndpointResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEnquiryService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getEnquiryServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getEnquiryServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="EnquiryServiceProxyService">
+
+      <wsdl:port binding="impl:EnquiryServiceProxySoapBinding" name="EnquiryServiceProxy">
+
+         <wsdlsoap:address location="http://localhost:8080/AirlinewebserviceClient/services/EnquiryServiceProxy"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

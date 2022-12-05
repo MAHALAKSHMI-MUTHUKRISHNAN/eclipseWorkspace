@@ -1,0 +1,60 @@
+package com.axis;
+
+public class EnquiryServiceProxy implements com.axis.EnquiryService {
+  private String _endpoint = null;
+  private com.axis.EnquiryService enquiryService = null;
+  
+  public EnquiryServiceProxy() {
+    _initEnquiryServiceProxy();
+  }
+  
+  public EnquiryServiceProxy(String endpoint) {
+    _endpoint = endpoint;
+    _initEnquiryServiceProxy();
+  }
+  
+  private void _initEnquiryServiceProxy() {
+    try {
+      enquiryService = (new com.axis.EnquiryServiceServiceLocator()).getEnquiryService();
+      if (enquiryService != null) {
+        if (_endpoint != null)
+          ((javax.xml.rpc.Stub)enquiryService)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+        else
+          _endpoint = (String)((javax.xml.rpc.Stub)enquiryService)._getProperty("javax.xml.rpc.service.endpoint.address");
+      }
+      
+    }
+    catch (javax.xml.rpc.ServiceException serviceException) {}
+  }
+  
+  public String getEndpoint() {
+    return _endpoint;
+  }
+  
+  public void setEndpoint(String endpoint) {
+    _endpoint = endpoint;
+    if (enquiryService != null)
+      ((javax.xml.rpc.Stub)enquiryService)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+    
+  }
+  
+  public com.axis.EnquiryService getEnquiryService() {
+    if (enquiryService == null)
+      _initEnquiryServiceProxy();
+    return enquiryService;
+  }
+  
+  public java.lang.String getName(int flightNum, int seatNum) throws java.rmi.RemoteException{
+    if (enquiryService == null)
+      _initEnquiryServiceProxy();
+    return enquiryService.getName(flightNum, seatNum);
+  }
+  
+  public java.lang.String getDetails(java.lang.String from, java.lang.String to) throws java.rmi.RemoteException{
+    if (enquiryService == null)
+      _initEnquiryServiceProxy();
+    return enquiryService.getDetails(from, to);
+  }
+  
+  
+}
